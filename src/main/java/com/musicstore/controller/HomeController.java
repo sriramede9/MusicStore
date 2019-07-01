@@ -26,7 +26,7 @@ public class HomeController {
 
 		model.addAttribute("product", allProducts.get(0));
 
-		return "product-list";
+		return "products-list";
 
 	}
 }
