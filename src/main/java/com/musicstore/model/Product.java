@@ -2,6 +2,8 @@ package com.musicstore.model;
 
 public class Product {
 
+	private String id;
+
 	private String productname;
 
 	private String productCategory;
@@ -81,7 +83,13 @@ public class Product {
 	public void setProductManufacturer(String productManufacturer) {
 		this.productManufacturer = productManufacturer;
 	}
-	
-	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 }

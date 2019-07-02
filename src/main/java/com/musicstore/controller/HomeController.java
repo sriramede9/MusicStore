@@ -1,9 +1,11 @@
 package com.musicstore.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.musicstore.dao.ProductDaoImpl;
@@ -29,10 +31,13 @@ public class HomeController {
 		return "products-list";
 
 	}
-	
-	@RequestMapping("/list/viewproduct")
-	public String viewProduct() {
+
+	@RequestMapping("/list/viewproduct/{id}")
+	public String viewProduct(@PathVariable String id, Model model) throws IOException {
+
+		model.addAttribute("product", new ProductDaoImpl().getProductbyId(id));
+
 		return "view-product";
 	}
-	
+
 }

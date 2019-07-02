@@ -1,5 +1,7 @@
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@include file="/WEB-INF/views/template/header.jsp"  %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 
 
 	<!-- Marketing messaging and featurettes
@@ -25,6 +27,7 @@
 						<th>Category</th>
 						<th>Condition</th>
 						<th>Price</th>
+						<th></th>
 					</tr>
 					<!--table row for image -->
 					
@@ -37,6 +40,8 @@
 						<td>${product.productCategory}</td>
 						<td>${product.productCondition}</td>
 						<td>${product.productPrice}Euro</td>
+						<td><a href="<spring:url value="/list/viewproduct/${product.id }"/>">
+						 <img src="https://img.icons8.com/ultraviolet/40/000000/about-us-female.png" width="20px" height="20px"></a></td>
 					</tr>
 					</c:forEach>
 				</thead>

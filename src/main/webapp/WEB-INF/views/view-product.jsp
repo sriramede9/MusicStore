@@ -22,12 +22,15 @@
 				</div>
 				<!-- information content -->
 				<div class="col-md-5">
-					<h1>Product Name</h1>
-					<p>Product Description</p>
-					<p>Manufacturer</p>
-					<p>Category</p>
-					<p>Conditon</p>
-					<p>Price</p>
+					<h1>${product.productname}</h1>
+					<p>${product.productDescription }</p>
+					<p>
+						<strong> Manufacturer: </strong>${product.productManufacturer }</p>
+					<p>
+						<strong>Category: </strong>${product.productCategory}</p>
+					<p>
+						<strong>Condition: </strong>${product.productCondition}</p>
+					<p>${product.productPrice}Euro</p>
 
 				</div>
 
