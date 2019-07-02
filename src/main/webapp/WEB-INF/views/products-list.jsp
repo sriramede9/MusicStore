@@ -27,7 +27,7 @@
 <!--
 <link href="css/carousel.css" rel="stylesheet">
 -->
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false" %> 
 </head>
 <!-- NAVBAR
 ================================================== -->
@@ -49,8 +49,8 @@
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#">Home</a></li>
-							<li><a href="#about">About</a></li>
+							<li class="active"><a href="<c:url value="/home"/>">Home</a></li>
+							<li><a href="<c:url value="/list"/>">Products</a></li>
 							<li><a href="#contact">Contact</a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -100,6 +100,10 @@
 						<th>Price</th>
 					</tr>
 					<!--table row for image -->
+					
+					<c:forEach items="${productlist}" var="product">
+    
+
 					<tr>
 						<td><img src="#" alt="Image for Drums"></td>
 						<td>${product.productname}</td>
@@ -107,6 +111,7 @@
 						<td>${product.productCondition}</td>
 						<td>${product.productPrice}Euro</td>
 					</tr>
+					</c:forEach>
 				</thead>
 			</table>
 
@@ -140,7 +145,7 @@
 				|| document
 						.write('<script src="<c:url value="/resources/js/jquery.min.js"/>"><\/script>')
 	</script>
-	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script> 
 
 </body>
 </html>

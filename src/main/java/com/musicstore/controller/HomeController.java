@@ -24,7 +24,7 @@ public class HomeController {
 
 		List<Product> allProducts = pimpl.getAllProducts();
 
-		model.addAttribute("product", allProducts.get(0));
+		model.addAttribute("productlist", allProducts);
 
 		return "products-list";
 
