@@ -1,9 +1,14 @@
 package com.musicstore.dao;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.FlushMode;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -15,6 +20,8 @@ import com.musicstore.model.Product;
 public class ProductDaoImpl implements ProductDao {
 
 	private List<Product> productList;
+	
+
 
 	@Autowired
 	HibernateTemplate hibernateTemplate;
@@ -24,10 +31,12 @@ public class ProductDaoImpl implements ProductDao {
 
 		List<Product> loadAll = hibernateTemplate.loadAll(Product.class);
 		return loadAll;
+		
+
 	}
 
 	@Transactional
-	public Product getProductById(String id) {
+	public Product getProductById(int id) {
 		// TODO Auto-generated method stub
 
 		Product product = hibernateTemplate.get(Product.class, id);
@@ -35,11 +44,17 @@ public class ProductDaoImpl implements ProductDao {
 		return product;
 	}
 
+	
+
 	@Transactional
 	public void addProduct(Product product) {
-		// TODO Auto-generated method stub
 
+		
+		hibernateTemplate.setCheckWriteOperations(false);
+		
 		hibernateTemplate.saveOrUpdate(product);
+
+       
 	}
 
 	@Transactional

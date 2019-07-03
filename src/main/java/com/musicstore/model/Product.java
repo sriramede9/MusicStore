@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Product {
 
 	@Id
-	private String id;
+	private int id;
 
 	private String productname;
 
@@ -89,12 +89,22 @@ public class Product {
 		this.productManufacturer = productManufacturer;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", productname=" + productname + ", productCategory=" + productCategory
+				+ ", productDescription=" + productDescription + ", productPrice=" + productPrice
+				+ ", productCondition=" + productCondition + ", productStatus=" + productStatus + ", unitsInStock="
+				+ unitsInStock + ", productManufacturer=" + productManufacturer + "]";
+	}
+	
+	
 
 }
