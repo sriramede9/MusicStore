@@ -43,7 +43,9 @@
 						<td>${product.productCondition}</td>
 						<td>${product.productPrice}Euro</td>
 						<td><a href="<spring:url value="/list/viewproduct/${product.id }"/>">
-						 <img src="https://img.icons8.com/ultraviolet/40/000000/about-us-female.png" width="20px" height="20px"></a></td>
+						 <img src="https://img.icons8.com/ultraviolet/40/000000/about-us-female.png" width="20px" height="20px"></a>|<a href="<spring:url value="/admin/productinventory/delete/${product.id}"/>">
+						 <img src="https://img.icons8.com/office/16/000000/delete-sign.png" width="20px" height="20px"></a></td>
+						 
 					</tr>
 					</c:forEach>
 				</thead>

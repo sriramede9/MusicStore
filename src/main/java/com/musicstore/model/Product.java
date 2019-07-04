@@ -1,12 +1,18 @@
 package com.musicstore.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Product {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
 	private String productname;
@@ -24,6 +30,17 @@ public class Product {
 	private int unitsInStock;
 
 	private String productManufacturer;
+
+//	@Transient
+//	private MultipartFile productImage;
+
+//	public MultipartFile getProductImage() {
+//		return productImage;
+//	}
+//
+//	public void setProductImage(MultipartFile productImage) {
+//		this.productImage = productImage;
+//	}
 
 	public String getProductname() {
 		return productname;
@@ -104,7 +121,5 @@ public class Product {
 				+ ", productCondition=" + productCondition + ", productStatus=" + productStatus + ", unitsInStock="
 				+ unitsInStock + ", productManufacturer=" + productManufacturer + "]";
 	}
-	
-	
 
 }

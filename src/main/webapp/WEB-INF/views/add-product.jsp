@@ -22,61 +22,65 @@
 		<p>Fill all the details to Add the product</p>
 
 
-		<form:form action="${pageContext.request.contextPath}/admin/productinventory/formresponse" method="POST" modelAttribute="productobj">
+		<form:form
+			action="${pageContext.request.contextPath}/admin/productinventory/formresponse"
+			method="POST" modelAttribute="productobj">
+
+			<form:hidden path="id" />
 
 			<div class="form-group">
 				<label for="product-name">Product Name</label>
 				<form:input class="form-control" path="productname"
-					 placeholder="Enter Product name" />
+					placeholder="Enter Product name" />
 			</div>
 
 			<div class="form-group">
 				<label for="product-category">Product Category</label>
 				<form:input class="form-control" path="productCategory"
-					 placeholder="Enter Product Category" />
+					placeholder="Enter Product Category" />
 			</div>
 
 
 			<div class="form-group">
 				<label for="product-Description">Product Description</label>
 				<form:input class="form-control" path="productDescription"
-					 placeholder="Enter Product Description" />
+					placeholder="Enter Product Description" />
 			</div>
 
 
 			<div class="form-group">
 				<label for="product-Price">Product Price</label>
 				<form:input class="form-control" path="productPrice"
-					 placeholder="Enter Product Price" />
+					placeholder="Enter Product Price" />
 			</div>
 
 			<div class="form-group">
 				<label for="product-Condition">Product Condition</label>
 				<form:input class="form-control" path="productCondition"
-					 placeholder="Enter Product Condition" />
+					placeholder="Enter Product Condition" />
 			</div>
 
 			<div class="form-group">
 				<label for="product-Status">Product Status</label>
 				<form:input class="form-control" path="productStatus"
-					 placeholder="Enter Product Status" />
+					placeholder="Enter Product Status" />
 			</div>
 
 			<div class="form-group">
 				<label for="instock">Units in Stock</label>
 				<form:input class="form-control" path="unitsInStock"
-					 placeholder="Enter units in stock" />
+					placeholder="Enter units in stock" />
 			</div>
 
 			<div class="form-group">
 				<label for="manufacturer">Product Manufacturer</label>
 				<form:input class="form-control" path="productManufacturer"
-					 placeholder="Enter ProductManufacturer" />
+					placeholder="Enter ProductManufacturer" />
 			</div>
 
-			
 
-			
+
+
 
 			<input type="submit" class="btn btn-primary" />
 

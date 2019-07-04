@@ -65,10 +65,11 @@
 		</property>
 	</bean>
 
+
 	<bean name="hibernateTemplate"
 		class="org.springframework.orm.hibernate5.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionfactory"></property>
-		<!-- <property name="checkWriteOperations" value="false"></property> -->
+		
 	</bean>
 
 
@@ -81,5 +82,6 @@
 		<property name="sessionFactory" ref="sessionfactory" />
 	</bean>
 
-
+	<!-- <bean id="multipartresolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+		<property name="maxUploadSize" value="1024000"></property> </bean> -->
 </beans>
