@@ -1,11 +1,14 @@
 package com.musicstore.controller;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Enumeration;
 import java.util.List;
 
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +18,17 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.musicstore.dao.ProductDaoImpl;
 import com.musicstore.model.Product;
 
+@MultipartConfig
 @Controller
 public class HomeController {
 
@@ -29,10 +36,6 @@ public class HomeController {
 
 	@Autowired
 	ProductDaoImpl productDaoImpl;
-
-//	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("configtest.xml");
-//
-//	ProductDaoImpl productDaoImpl = context.getBean("productdao", ProductDaoImpl.class);
 
 	@RequestMapping("/home")
 	public String homepage() {
@@ -84,30 +87,12 @@ public class HomeController {
 		return "add-product";
 	}
 
-	@RequestMapping(value = "/admin/productinventory/formresponse", method = RequestMethod.POST)
-	public String formrequesthandler(@ModelAttribute Product product, HttpServletRequest request) {
+	@PostMapping(value = "/admin/productinventory/formresponse")
+	public String formrequesthandler(@ModelAttribute Product product, HttpServletRequest request,@RequestParam("file") MultipartFile file) {
 
-		// System.out.println("submitted value of product" + product);
+		System.out.println("product" + product + "\t" + file);
 
-//		MultipartFile productImage = product.getProductImage();
-//		String rootdir = request.getSession().getServletContext().getRealPath("/");
-//		path = Paths.get(rootdir + "\\WEB-INF\\resources\\images\\" + product.getId() + ".png");
-//
-//		if (productImage != null && !productImage.isEmpty()) {
-//			try {
-//				productImage.transferTo(new File(path.toString()));
-//			} catch (IllegalStateException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-
-		// System.out.println("product" + product);
-
-		productDaoImpl.addProduct(product);
+		// productDaoImpl.addProduct(product);
 
 		return "redirect:/list";
 	}
@@ -117,7 +102,7 @@ public class HomeController {
 
 //		Product productById = productDaoImpl.getProductById(id);
 //		productDaoImpl.deleteProduct(productById);
-	 productDaoImpl.deleteProduct(id);
+		productDaoImpl.deleteProduct(id);
 
 		return "redirect:/list";
 	}

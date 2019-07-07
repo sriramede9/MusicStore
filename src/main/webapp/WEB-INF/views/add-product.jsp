@@ -24,7 +24,8 @@
 
 		<form:form
 			action="${pageContext.request.contextPath}/admin/productinventory/formresponse"
-			method="POST" modelAttribute="productobj">
+			method="POST" 
+			modelAttribute="productobj" enctype="multipart/form-data">
 
 			<form:hidden path="id" />
 
@@ -78,8 +79,11 @@
 					placeholder="Enter ProductManufacturer" />
 			</div>
 
-
-
+			<div class="form-group">
+			<label for="img">Image
+				<input type="file" name="file" />
+				</label>
+			</div>
 
 
 			<input type="submit" class="btn btn-primary" />

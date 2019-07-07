@@ -31,16 +31,17 @@ public class Product {
 
 	private String productManufacturer;
 
-//	@Transient
-//	private MultipartFile productImage;
+	@Transient
+	private MultipartFile productImage;
 
-//	public MultipartFile getProductImage() {
-//		return productImage;
-//	}
-//
-//	public void setProductImage(MultipartFile productImage) {
-//		this.productImage = productImage;
-//	}
+	@Transient
+	public MultipartFile getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(MultipartFile productImage) {
+		this.productImage = productImage;
+	}
 
 	public String getProductname() {
 		return productname;
